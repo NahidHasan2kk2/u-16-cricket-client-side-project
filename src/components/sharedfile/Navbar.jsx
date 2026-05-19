@@ -10,9 +10,15 @@ import { Menu } from 'lucide-react';
 const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
-
-
   const [menuOpen, setMenuOpen] = useState(false);
+
+
+  const handleLogOut = async () => {
+    await authClient.signOut()
+    setMenuOpen(false)
+  }
+
+
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background shadow-sm">
@@ -82,7 +88,7 @@ const Navbar = () => {
                   <Image
                     className='rounded-full'
                     src={user?.image}
-                    alt="Profile"
+                    alt={user?.name}
                     width={30}
                     height={30}
                   />
@@ -140,13 +146,15 @@ const Navbar = () => {
             className="p-2 border rounded-md"
           >
             <div className='flex opacity-75 gap-4 items-center'>
-              <p className='font-bold '><Image
-                className='rounded-full'
-                src={user?.image}
-                alt="profile"
-                width={30}
-                height={30}
-              /></p>
+              {
+                user ? <p className='font-bold '><Image
+                  className='rounded-full'
+                  src={user?.image}
+                  alt={user?.name}
+                  width={30}
+                  height={30}
+                /></p> : ''
+              }
               <Menu size={28} />
             </div>
           </button>
@@ -157,13 +165,16 @@ const Navbar = () => {
               <Link
                 className="block font-semibold hover:text-cyan-500"
                 href="/dashboard/all-facilities"
+                onClick={() => setMenuOpen(false)}
               >
                 All Facilities
+
               </Link>
 
               <Link
                 className="block font-semibold hover:text-cyan-500"
                 href="/dashboard/my-booking"
+                onClick={() => setMenuOpen(false)}
               >
                 My Bookings
               </Link>
@@ -171,6 +182,7 @@ const Navbar = () => {
               <Link
                 className="block font-semibold hover:text-cyan-500"
                 href="/dashboard/add-facility"
+                onClick={() => setMenuOpen(false)}
               >
                 Add Facility
               </Link>
@@ -178,6 +190,7 @@ const Navbar = () => {
               <Link
                 className="block font-semibold hover:text-cyan-500"
                 href="/dashboard/manage-facilities"
+                onClick={() => setMenuOpen(false)}
               >
                 Manage Facilities
               </Link>
@@ -186,7 +199,7 @@ const Navbar = () => {
 
               {user ? (
                 <button
-                  onClick={async () => await authClient.signOut()}
+                  onClick={handleLogOut}
                   className="text-red-500 font-semibold"
                 >
                   Logout
