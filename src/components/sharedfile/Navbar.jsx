@@ -128,11 +128,15 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex gap-2">
-              <Button className="bg-cyan-500">
+              <Button className="bg-cyan-500"
+                onClick={() => setMenuOpen(false)}
+              >
                 <Link href="/auth/login">Login</Link>
               </Button>
 
-              <Button className="bg-cyan-500">
+              <Button className="bg-cyan-500"
+                onClick={() => setMenuOpen(false)}
+              >
                 <Link href="/auth/register">Register</Link>
               </Button>
             </div>
