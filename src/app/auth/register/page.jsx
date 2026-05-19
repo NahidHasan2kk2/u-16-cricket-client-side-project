@@ -36,7 +36,7 @@ const RegisterPage = () => {
  const loginWithGoogle = async () => {
   const data = await authClient.signIn.social({
    provider: 'google',
-   callbackURL: '/dashboard/all-facilities'
+   callbackURL: '/dashboard'
   })
   if (data) {
    alert('Google login successfully')
