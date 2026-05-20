@@ -1,8 +1,26 @@
 'use client'
 import { AlertDialog, Button } from "@heroui/react";
+import { useRouter } from "next/navigation";
+
 import { MdDelete } from "react-icons/md";
 
-const DeleteModal = () => {
+const DeleteModal = ({ details }) => {
+ const router = useRouter();
+ const { _id, name } = details;
+
+ const handleDelete = async (id) => {
+  console.log(id);
+  const res = await fetch(`http://localhost:8001/all-facilities/${id}`, {
+   method: "DELETE"
+  });
+  const data = await res.json();
+
+  alert('Deleted Successfully')
+  router.push("/dashboard/all-facilities");
+  router.refresh();
+
+
+ }
  return (
   <AlertDialog>
    <Button className="ml-3 bg-danger text-white font-semibold rounded-2xl">
@@ -14,19 +32,20 @@ const DeleteModal = () => {
       <AlertDialog.CloseTrigger />
       <AlertDialog.Header>
        <AlertDialog.Icon status="danger" />
-       <AlertDialog.Heading>Delete project permanently?</AlertDialog.Heading>
+       <AlertDialog.Heading>Delete permanently?</AlertDialog.Heading>
       </AlertDialog.Header>
       <AlertDialog.Body>
        <p>
-        This will permanently delete <strong>My Awesome Project</strong> and all of its
-        data. This action cannot be undone.
+        Here is the <strong>{name}</strong> facility delete confirmation alert !
        </p>
       </AlertDialog.Body>
       <AlertDialog.Footer>
        <Button slot="close" variant="tertiary">
         Cancel
        </Button>
-       <Button slot="close" variant="danger">
+       <Button
+        onClick={() => handleDelete(_id)}
+        slot="close" variant="danger">
         Delete Project
        </Button>
       </AlertDialog.Footer>
