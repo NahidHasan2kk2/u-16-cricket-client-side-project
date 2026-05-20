@@ -1,11 +1,12 @@
+import DeleteModal from '@/components/DeleteModal';
+import EditModal from '@/components/EditModal';
 import { Button, Card } from '@heroui/react';
 import { Clock, DollarSign, MapPin, Users } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import React from 'react';
-import { CiEdit } from 'react-icons/ci';
-import { MdDelete } from 'react-icons/md';
+
 import { TbBrandBooking } from 'react-icons/tb';
 
 const FacilityDetailsPage = async ({ params }) => {
@@ -68,12 +69,9 @@ const FacilityDetailsPage = async ({ params }) => {
       {description}
      </p>
      <div className='flex'>
-      <Button className="px-10 bg-cyan-500  text-white font-semibold rounded-2xl">
-       <CiEdit /> Edit
-      </Button>
-      <Button className="ml-3 bg-danger text-white font-semibold rounded-2xl">
-       <MdDelete />Delete
-      </Button>
+      <EditModal details={details}></EditModal>
+      <DeleteModal details={details}></DeleteModal>
+
      </div>
 
     </div>
