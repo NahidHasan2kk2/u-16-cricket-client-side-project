@@ -64,7 +64,7 @@ const FacilitiesCard = ({ facility }) => {
     </p>
 
     <Link
-     href={`/facilities/${_id}`}
+     href={`/dashboard/all-facilities/${_id}`}
      className="block text-center mt-3 bg-cyan-500 hover:bg-cyan-600 text-white py-2 rounded-lg transition"
     >
      View Details
