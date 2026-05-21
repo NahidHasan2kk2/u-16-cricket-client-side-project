@@ -36,7 +36,7 @@ const DeleteBooking = ({ booking }) => {
       </AlertDialog.Header>
       <AlertDialog.Body>
        <p>
-        Here is the <strong>{name}</strong> facility delete confirmation alert !
+        Here is  the <strong>{name}</strong> facility delete confirmation alert !!
        </p>
       </AlertDialog.Body>
       <AlertDialog.Footer>
