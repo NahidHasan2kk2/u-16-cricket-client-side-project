@@ -12,7 +12,7 @@ const DeleteModal = ({ details }) => {
  const handleDelete = async (id) => {
   const { data: tokenData } = await authClient.token();
   console.log(id);
-  const res = await fetch(`http://localhost:8001/all-facilities/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-facilities/${id}`, {
    method: "DELETE",
    headers: {
     authorization: `Bearer ${tokenData?.token}`

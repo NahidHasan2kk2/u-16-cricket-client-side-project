@@ -24,7 +24,7 @@ const EditModal = ({ details }) => {
   const formData = new FormData(e.target);
   const finalFormData = Object.fromEntries(formData);
 
-  const res = await fetch(`http://localhost:8001/all-facilities/${_id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-facilities/${_id}`, {
    method: "PATCH",
    headers: {
     "Content-Type": "application/json",

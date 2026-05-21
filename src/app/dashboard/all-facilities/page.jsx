@@ -3,11 +3,9 @@ import FacilitiesCard from "@/components/FacilitiesCard";
 
 
 const AllFacilities = async () => {
- const res = await fetch("http://localhost:8001/all-facilities");
+ const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-facilities`);
 
- if (!res.ok) {
-  throw new Error("API failed");
- }
+
 
  const data = await res.json();
 

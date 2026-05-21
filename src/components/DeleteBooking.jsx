@@ -10,7 +10,7 @@ const DeleteBooking = ({ booking }) => {
 
  const handleDelete = async (id) => {
   console.log(id);
-  const res = await fetch(`http://localhost:8001/my-booking/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-booking/${id}`, {
    method: "DELETE"
   });
   const data = await res.json();

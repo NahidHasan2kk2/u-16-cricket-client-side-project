@@ -20,7 +20,7 @@ const AddFacility = () => {
    ...facility, userEmail
   }
   console.log(newFacility);
-  const res = await fetch('http://localhost:8001/add-facilities', {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/add-facilities`, {
    method: "POST",
    headers: {
     "Content-Type": "application/json",

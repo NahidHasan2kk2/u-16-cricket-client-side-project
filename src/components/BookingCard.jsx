@@ -33,7 +33,7 @@ const BookingCard = ({ details }) => {
    date: new Date(departureDate)
 
   }
-  const res = await fetch('http://localhost:8001/my-booking', {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-booking`, {
    method: "POST",
    headers: {
     'content-type': 'application/json'
