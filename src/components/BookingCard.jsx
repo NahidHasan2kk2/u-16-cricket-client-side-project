@@ -16,7 +16,7 @@ const BookingCard = ({ details }) => {
   image,
   location,
   price,
-
+  timeSlots,
   type,
 
  } = details;
@@ -26,13 +26,9 @@ const BookingCard = ({ details }) => {
  const handleBooking = async () => {
   const newBookingData = {
    userName: user?.name,
-   userEmail: user?.email,
-   imageUrl: user?.image,
    name,
    image,
    price,
-   type,
-   location,
    duration,
    date: new Date(departureDate)
 
