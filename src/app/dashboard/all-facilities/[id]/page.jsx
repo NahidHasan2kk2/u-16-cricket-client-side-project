@@ -40,8 +40,8 @@ const FacilityDetailsPage = async ({ params }) => {
     />
    </div>
 
-   <div className='flex  gap-3 justify-around'>
-    <div className="p-4 w-full bg-zinc-100 rounded-xl space-y-2">
+   <div className='lg:flex space-y-3 lg:space-y-0 gap-3 justify-around'>
+    <div className="p-4 w-full bg-zinc-100 rounded-2xl space-y-2">
 
      <h2 className="text-xl font-bold">{name}</h2>
 
@@ -77,7 +77,7 @@ const FacilityDetailsPage = async ({ params }) => {
      </div>
 
     </div>
-    <div className="w-[80%]">
+    <div className="lg:w-[80%] w-full mt-auto">
 
      <BookingCard details={details}></BookingCard>
 
