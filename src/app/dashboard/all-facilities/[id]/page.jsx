@@ -1,13 +1,15 @@
+
+import BookingCard from '@/components/BookingCard';
 import DeleteModal from '@/components/DeleteModal';
 import EditModal from '@/components/EditModal';
-import { Button, Card } from '@heroui/react';
+import { Card } from '@heroui/react';
 import { Clock, DollarSign, MapPin, Users } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 
-import React from 'react';
 
-import { TbBrandBooking } from 'react-icons/tb';
+
+
+
 
 const FacilityDetailsPage = async ({ params }) => {
  const { id } = await params;
@@ -77,50 +79,7 @@ const FacilityDetailsPage = async ({ params }) => {
     </div>
     <div className="w-[80%]">
 
-     <Card className="bg-zinc-100 border border-zinc-100 rounded-3xl">
-      <div className="p-2 space-y-2">
-
-       <h2 className="text-xl  font-bold">
-        Book Facility
-       </h2>
-
-       <div className="flex justify-between">
-        <p className="text-gray-700">Price</p>
-        <p className="text-cyan-500 font-bold text-xl">
-         ${price}/hr
-        </p>
-       </div>
-
-       <div>
-        <label className="text-sm text-gray-400">
-         Select Date
-        </label>
-
-        <input
-         type="date"
-         className="w-full  bg-zinc-300 border border-zinc-300 rounded px-4 py-1"
-        />
-       </div>
-
-       <div>
-        <label className="text-sm text-gray-400">
-         Duration
-        </label>
-
-        <select className="w-full  bg-zinc-300 border border-zinc-300 rounded px-4 py-1">
-         <option>1 Hour</option>
-         <option>2 Hours</option>
-         <option>3 Hours</option>
-        </select>
-       </div>
-
-       <Button className="w-full bg-cyan-500 py-2 text-white font-semibold rounded-2xl">
-        <TbBrandBooking /> Book Now
-       </Button>
-
-
-      </div>
-     </Card>
+     <BookingCard details={details}></BookingCard>
 
     </div>
 

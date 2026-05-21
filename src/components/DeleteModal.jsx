@@ -46,7 +46,7 @@ const DeleteModal = ({ details }) => {
        <Button
         onClick={() => handleDelete(_id)}
         slot="close" variant="danger">
-        Delete Project
+        Confirm Delete
        </Button>
       </AlertDialog.Footer>
      </AlertDialog.Dialog>
