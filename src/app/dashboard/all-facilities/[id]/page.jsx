@@ -2,8 +2,10 @@
 import BookingCard from '@/components/BookingCard';
 import DeleteModal from '@/components/DeleteModal';
 import EditModal from '@/components/EditModal';
+import { auth } from '@/lib/auth';
 import { Card } from '@heroui/react';
 import { Clock, DollarSign, MapPin, Users } from 'lucide-react';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 
 
@@ -13,8 +15,16 @@ import Image from 'next/image';
 
 const FacilityDetailsPage = async ({ params }) => {
  const { id } = await params;
- console.log(id)
- const res = await fetch(`http://localhost:8001/all-facilities/${id}`);
+ const { token } = await auth.api.getToken({
+  headers: await headers()
+ })
+ // console.log(token)
+ // console.log(id)
+ const res = await fetch(`http://localhost:8001/all-facilities/${id}`, {
+  headers: {
+   authorization: `Bearer ${token}`
+  }
+ });
  const details = await res.json();
  const {
   name,

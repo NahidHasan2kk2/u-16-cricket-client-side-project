@@ -3,11 +3,15 @@ import { authClient } from '@/lib/auth-client';
 import React, { useState } from 'react';
 
 const AddFacility = () => {
+
+
+
  const { data: session } = authClient.useSession();
  const [loading, setLoading] = useState(false)
  const userEmail = session?.user?.email;
 
  const handleSubmit = async (e) => {
+  const { data: tokenData } = await authClient.token()
   e.preventDefault();
   setLoading(true);
   const formData = await new FormData(e.target);
@@ -20,6 +24,7 @@ const AddFacility = () => {
    method: "POST",
    headers: {
     "Content-Type": "application/json",
+    authorization: `Bearer ${tokenData?.token}`
    },
    body: JSON.stringify(newFacility),
   })
