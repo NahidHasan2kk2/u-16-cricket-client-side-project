@@ -19,7 +19,7 @@ const AllFacilities = async () => {
    <div className='text-center my-5'>
     <h1 className='text-3xl font-bold'>All Facilities</h1>
    </div>
-   <div className='grid lg:grid-cols-3 gap-3'>
+   <div className="grid lg:grid-cols-3 gap-3 items-stretch auto-rows-fr">
     {
      data.map(facility => <FacilitiesCard key={facility._id} facility={facility}></FacilitiesCard>)
     }

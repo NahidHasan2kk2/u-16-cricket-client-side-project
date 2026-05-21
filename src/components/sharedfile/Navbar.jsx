@@ -99,21 +99,21 @@ const Navbar = () => {
               <div className="absolute right-0 mt-2 hidden group-hover:block bg-white border shadow-md rounded-md w-52">
                 <Link
                   className="block px-4 py-2 hover:bg-gray-100"
-                  href="/bookings"
+                  href="/dashboard/my-booking"
                 >
                   My Bookings
                 </Link>
 
                 <Link
                   className="block px-4 py-2 hover:bg-gray-100"
-                  href="/add-facility"
+                  href="/dashboard/add-facility"
                 >
                   Add Facility
                 </Link>
 
                 <Link
                   className="block px-4 py-2 hover:bg-gray-100"
-                  href="/manage-facilities"
+                  href="/dashboard/manage-facilities"
                 >
                   Manage Facilities
                 </Link>

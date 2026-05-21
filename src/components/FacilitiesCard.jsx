@@ -20,7 +20,7 @@ const FacilitiesCard = ({ facility }) => {
  } = facility;
 
  return (
-  <Card className="w-full max-w-sm rounded-2xl  shadow-md overflow-hidden hover:shadow-2xl transition">
+  <Card className="w-full max-w-sm rounded-2xl h-full flex flex-col  shadow-md overflow-hidden hover:shadow-2xl transition">
 
 
    <div className="relative  w-full h-48">
@@ -33,7 +33,7 @@ const FacilitiesCard = ({ facility }) => {
    </div>
 
 
-   <div className="p-4 space-y-2">
+   <div className="p-4 flex flex-col flex-1 space-y-2 ">
 
     <h2 className="text-xl font-bold">{name}</h2>
 
@@ -63,12 +63,14 @@ const FacilitiesCard = ({ facility }) => {
      {description}
     </p>
 
-    <Link
-     href={`/dashboard/all-facilities/${_id}`}
-     className="block text-center mt-3 bg-cyan-500 hover:bg-cyan-600 text-white py-2 rounded-lg transition"
-    >
-     View Details
-    </Link>
+    <div className="mt-auto pt-4">
+     <Link
+      href={`/dashboard/all-facilities/${_id}`}
+      className="block text-center bg-cyan-500 hover:bg-cyan-600 text-white py-2 rounded-lg"
+     >
+      View Details
+     </Link>
+    </div>
 
    </div>
   </Card>
