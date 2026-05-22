@@ -1,4 +1,6 @@
+
 import HeroBanner from '@/components/Banner';
+
 import React from 'react';
 
 const HomeLayout = ({ children }) => {

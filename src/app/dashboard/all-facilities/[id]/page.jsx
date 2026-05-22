@@ -1,4 +1,3 @@
-
 import BookingCard from '@/components/BookingCard';
 import DeleteModal from '@/components/DeleteModal';
 import EditModal from '@/components/EditModal';
@@ -100,5 +99,3 @@ const FacilityDetailsPage = async ({ params }) => {
 };
 
 export default FacilityDetailsPage;
-
-

@@ -10,13 +10,18 @@ const MyBookings = async () => {
   const { token } = await auth.api.getToken({
     headers: await headers()
   })
+
+
+
+
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-booking`, {
     headers: {
       authorization: `Bearer ${token}`
     }
   });
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
   return (
     <div>
       {

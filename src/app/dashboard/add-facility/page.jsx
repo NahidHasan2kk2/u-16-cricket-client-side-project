@@ -11,9 +11,11 @@ const AddFacility = () => {
  const userEmail = session?.user?.email;
 
  const handleSubmit = async (e) => {
-  const { data: tokenData } = await authClient.token()
   e.preventDefault();
   setLoading(true);
+  const { data: tokenData } = await authClient.token()
+
+
   const formData = await new FormData(e.target);
   const facility = await Object.fromEntries(formData.entries());
   const newFacility = {
