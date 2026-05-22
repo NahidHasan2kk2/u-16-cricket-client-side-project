@@ -5,9 +5,13 @@ import { Card } from '@heroui/react';
 import { DollarSign, Users, MapPin, Clock } from 'lucide-react';
 import Image from 'next/image';
 
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
+import { authClient } from '@/lib/auth-client';
 
 const FacilitiesCard = ({ facility }) => {
+
+ const { data: session } = authClient.useSession();
+ const user = session?.user;
  const router = useRouter();
  const {
   name,
@@ -22,6 +26,9 @@ const FacilitiesCard = ({ facility }) => {
  } = facility;
 
  const handleViewDetails = () => {
+  if (!user) {
+   redirect('/auth/login');
+  }
 
   router.push(`/dashboard/all-facilities/${_id}`);
 
