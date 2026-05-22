@@ -1,24 +1,18 @@
 import FacilitiesCard from "@/components/FacilitiesCard";
-// import { auth } from "@/lib/auth";
-// import { headers } from "next/headers";
+
 
 
 
 const AllFacilities = async () => {
 
- // const { token } = await auth.api.getToken({
- //  headers: await headers()
- // })
 
 
 
- // , {
- //   headers: {
- //    authorization: `Bearer ${token}`
- //   }
- //  }
-
- const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-facilities`);
+ const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/all-facilities`,
+  {
+   cache: "no-store",
+  }
+ );
 
  const data = await res.json();
 
