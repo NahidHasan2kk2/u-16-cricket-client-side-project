@@ -36,14 +36,18 @@ const FacilityDetailsPage = async ({ params }) => {
   type,
 
  } = details;
+ const safeImage =
+  typeof image === "string" && image.startsWith("http")
+   ? image
+   : "/banner5.jpg";
  return (
   <Card className="lg:max-w-9/12 mx-auto rounded-2xl  shadow-md overflow-hidden hover:shadow-2xl transition">
 
 
    <div className="relative  w-full h-72">
     <Image
-     src={image}
-     alt={name}
+     src={safeImage}
+     alt={name || 'logo'}
      fill
      className="object-cover rounded-2xl"
     />

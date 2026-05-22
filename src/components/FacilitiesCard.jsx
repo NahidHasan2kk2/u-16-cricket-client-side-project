@@ -5,8 +5,10 @@ import { Card } from '@heroui/react';
 import { DollarSign, Users, MapPin, Clock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const FacilitiesCard = ({ facility }) => {
+ const router = useRouter();
  const {
   name,
   image,
@@ -19,14 +21,31 @@ const FacilitiesCard = ({ facility }) => {
   _id,
  } = facility;
 
+ const handleViewDetails = () => {
+
+  const token = localStorage.getItem('token');
+
+  if (!token) {
+   router.push('/auth/login');
+   return;
+  }
+
+  router.push(`/dashboard/all-facilities/${_id}`);
+ };
+
+ const safeImage =
+  typeof image === "string" && image.startsWith("http")
+   ? image
+   : "/banner5.jpg";
+
  return (
   <Card className="w-full max-w-sm rounded-2xl h-full flex flex-col  shadow-md overflow-hidden hover:shadow-2xl transition">
 
 
    <div className="relative  w-full h-48">
     <Image
-     src={image}
-     alt={name}
+     src={safeImage}
+     alt={name || 'logo'}
      fill
      className="object-cover rounded-2xl"
     />
@@ -64,12 +83,12 @@ const FacilitiesCard = ({ facility }) => {
     </p>
 
     <div className="mt-auto pt-4">
-     <Link
-      href={`/dashboard/all-facilities/${_id}`}
-      className="block text-center bg-cyan-500 hover:bg-cyan-600 text-white py-2 rounded-lg"
+     <button
+      onClick={handleViewDetails}
+      className="block w-full text-center bg-cyan-500 hover:bg-cyan-600 text-white py-2 rounded-lg transition"
      >
       View Details
-     </Link>
+     </button>
     </div>
 
    </div>

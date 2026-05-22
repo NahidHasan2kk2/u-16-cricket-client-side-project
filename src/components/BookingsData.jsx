@@ -5,12 +5,18 @@ import DeleteBooking from './DeleteBooking';
 const BookingsData = ({ booking }) => {
  console.log(booking)
  const { name, userName, image, date, duration, price } = booking;
+
+ const safeImage =
+  typeof image === "string" && image.startsWith("http")
+   ? image
+   : "/banner5.jpg";
+
  return (
   <Card className="w-full lg:w-[70%] mx-auto border-2 my-5 flex flex-col md:flex-row rounded-2xl overflow-hidden">
 
    <div className="w-full md:w-[160px] lg:w-[180px] h-[180px] md:h-auto">
     <img
-     src={image}
+     src={safeImage}
      className="w-full h-full object-cover rounded-2xl"
     />
    </div>

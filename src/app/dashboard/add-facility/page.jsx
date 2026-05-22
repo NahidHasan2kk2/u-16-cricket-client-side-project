@@ -34,7 +34,7 @@ const AddFacility = () => {
   alert("Facility Added Successfully");
 
   e.target.reset();
-  console.log(data);
+  // console.log(data);
   setLoading(false)
 
  }
