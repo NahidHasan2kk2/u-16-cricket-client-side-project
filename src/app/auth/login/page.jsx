@@ -2,13 +2,14 @@
 import { authClient } from '@/lib/auth-client';
 import { Button, Card, Description, FieldError, Form, Input, Label, Separator, TextField } from '@heroui/react';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 
 import React from 'react';
 import { FaGoogle } from 'react-icons/fa';
 
 const LoginPage = () => {
+ const router = useRouter();
  const onSubmit = async (e) => {
   e.preventDefault();
   const formData = await new FormData(e.target);
@@ -24,7 +25,8 @@ const LoginPage = () => {
   });
   if (data) {
    alert('user login successfully')
-   redirect('/')
+
+   router.push("/");
   } if (error) {
    alert(error)
   }

@@ -22,21 +22,19 @@ const FacilitiesCard = ({ facility }) => {
  } = facility;
 
  const handleViewDetails = () => {
+  const token = typeof window !== "undefined"
+   ? localStorage.getItem("token")
+   : null;
 
-  const token = localStorage.getItem('token');
+  console.log("TOKEN:", token);
 
   if (!token) {
-   router.push('/auth/login');
+   router.push("/auth/login");
    return;
   }
 
   router.push(`/dashboard/all-facilities/${_id}`);
  };
-
- const safeImage =
-  typeof image === "string" && image.startsWith("http")
-   ? image
-   : "/banner5.jpg";
 
  return (
   <Card className="w-full max-w-sm rounded-2xl h-full flex flex-col  shadow-md overflow-hidden hover:shadow-2xl transition">
